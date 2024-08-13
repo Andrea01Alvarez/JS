@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevos tipos de datos</title>
+</head>
+<body>
+
+    <h1> Nuevos tipos de datos </h1>
+
+    <script>
+//    const NOMBRE = Symbol();
+//    const SALUDAR = Symbol(); 
+
+//    const persona = {
+//     [NOMBRE]: "Jon",
+//     edad: 35
+//    }; 
+
+//    console.log(persona);
+
+//    persona.NOMBRE = "Andrea Alvarez"
+//    console.log(persona);
+//    console.log(persona.NOMBRE);
+//    console.log(persona[NOMBRE]);
+
+//    persona[SALUDAR] = function (){
+//     console.log("Hola");
+//    }
+
+//    console.log(persona);
+//    persona[SALUDAR](); 
+
+//    for (let propiedad in persona) {
+//     console.log(propiedad);
+//     console.log(persona[propiedad]);
+    
+//    }
+
+/**/
+// const ws = new WeakSet(); 
+
+// let valor1 = {"valor ": 1} ;
+// let valor2 = {"valor ": 2} ;
+// let valor3 = {"valor ": 3} ;
+
+// ws.add(valor1);
+// ws.add(valor2); 
+
+// console.log(ws);
+
+// console.log(ws.has(valor1));
+// console.log(ws.has(valor3));
+
+// ws.delete(valor2);
+// console.log(ws);
+
+
+// ws.add(valor3); 
+// console.log(ws.has(valor3));
+
+// setInterval(() => console.log(ws),1000); 
+
+// setTimeout(() => {
+//     valor1 = null; 
+//     valor2 = null; 
+//     valor3 = null;
+// }, 5000); 
+
+/**/
+// const wm = new WeakMap([
+//     ["nombre", "Lara"],
+//     ["edad", 0.5],
+//     ["animal", "perro"],
+//     [null, "nulo"]
+// ])
+
+// const wm = new WeakMap(); 
+
+// let llave1 = {}; 
+// let llave2 = {}; 
+// let llave3 = {}; 
+
+
+// wm.set(llave1,1);
+// wm.set(llave2,2);
+// //wm.set(llave3,3);
+
+// console.log(wm);
+
+// console.log(wm.has(llave1));
+// console.log(wm.has(llave3));
+
+// wm.delete(llave2,2); 
+// console.log(wm);
+
+// //wm.set(llave2,2);
+// wm.set(llave3,3);
+// console.log(wm.has(llave3));
+// console.log(wm);
+
+
+// setInterval(() => console.log(wm),1000); 
+
+// setTimeout(() => {
+//     llave1 = null; 
+//     llave2 = null; 
+//     llave3 = null; 
+// }, 5000);
+
+/**/ 
+// const iterable = [1,2,3,4,5]; 
+// //const iterable = "Hola Mundo";
+// //const iterable = new Set([1,2,3,4,5]);
+// //const iterable = new Map([["nombre", "Andrea"], ["edad", 23]]);
+
+// //accedemos al iterador de la variable iterable
+// const iterador = iterable[Symbol.iterator](); 
+
+// console.log(iterable);
+
+// console.log(iterador);
+// //console.log(iterador.next());
+
+// let next = iterador.next(); 
+
+// while (!next.done) {
+//     console.log(next.value);
+//     next = iterador.next(); 
+// }
+
+/**/ 
+
+// function* iterable() {
+//     yield "hola";
+//     console.log("Hola consola");
+//     yield "hola 2"; 
+//     console.log("seguimos con mas intrucciones de nuestro codigo");
+//     yield "hola 3"; 
+//     yield "hola 4"; 
+// }
+
+//  let iterador = iterable(); 
+
+ //console.log(iterador.next()); 
+
+
+//  let next = iterador.next(); 
+
+//  while(!next.done){
+//     console.log(next.value);
+//     next = iterador.next(); 
+//  }
+
+// for (let i of iterador) {
+//     console.log(i);
+    
+// }
+
+// let arr = [...iterable()]; 
+
+// console.log(arr);
+
+// function cuadrado(valor) {
+//     setTimeout(() => {
+//       return  console.log({ valor, resultado: valor * valor});
+//     }, Math.random() * 1000);
+
+    
+
+// }
+
+// function* generator() {
+//     console.log("Inicia Generator");
+//     yield cuadrado(0);
+//     yield cuadrado(2);
+//     yield cuadrado(4);
+//     yield cuadrado(6);
+//     console.log("Fin del Generator");
+    
+// }
+
+// let gen = generator(); 
+
+// for (let y of gen) {
+//     console.log(y);
+    
+// }
+
+/*PROXIES*/ 
+ 
+// const persona = {
+//     nombre: "",
+//     apellido: "",
+//     edad: 0
+// }
+
+// const manejador = {
+//     set(obj,prop,valor){
+//         if(Object.keys(obj).indexOf(prop) === -1){
+//             return console.error("La propiedad no existe"); 
+//         }
+// if (( prop === "nombre" || prop === "apellido") && !(/^[A-Za-zÑñÁáÉéÍíÓóÚú\s]+$/g.test(valor))){
+//     return console.error("La propiedad solo acepta letras y espacios en blanco"); 
+// }
+//      obj[prop] = valor; 
+//     }
+// }
+
+// const jon = new Proxy(persona,manejador);
+// jon.nombre = "8585"; 
+// jon.apellido = "Alvarez"; 
+// jon.edad = 23; 
+// jon.profesion = "Informatica"; 
+// console.log(jon);
+
+/*PROPIEDADES DINAMICAS DE LOS OBJETOS*/
+
+// let aleatorio = Math.round(Math.random()*100+5); 
+
+// const objUsuarios = {
+//     [`id_${aleatorio}`] : "Valor Aleatorio"
+// };
+// console.log(objUsuarios);
+
+
+// const usuarios = ["Andrea", "Daniel", "Daniela", "Jony"]; 
+
+// usuarios.forEach((usuario, index) => objUsuarios[`id_${index}`] = usuario); 
+// console.log(objUsuarios);
+
+/*THIS*/
+
+// this.nombre = "Contexto"; 
+
+// console.log(this.nombre);
+
+// function imprimir() {
+//     console.log(this.nombre);
+// }
+
+// imprimir(); 
+
+
+// const obj = {
+//     nombre: "Contexto Objeto",
+//     imprimir: function(){
+//         console.log(this.nombre);
+//     }
+// }
+
+// obj.imprimir(); 
+
+// const obj2 = {
+//     nombre: "Contexto 2",
+//     imprimir
+// }
+
+// obj2.imprimir()
+
+
+// const obj3 = {
+//     nombre: "Contexto Objeto",
+//     imprimir: () => {
+//         console.log(this.nombre);
+//     }
+// }
+
+// obj3.imprimir()
+
+// function Persona(nombre) {
+//     const that = this; 
+//     that.nombre = nombre; 
+//     //return console.log(this.nombre);
+
+//     return function(){
+//         console.log(that.nombre);
+//     }
+// }
+ 
+// let a = new Persona("andrea")
+// //Persona("aNDREA")
+// a();
+
+/*CALL, APPLY, BIND*/
+
+// console.log(this);
+// this.lugar = "Contexto Global"; 
+
+// function saludar(saludo, aQuien) {
+//     console.log(`${saludo} ${aQuien} desde el ${this.lugar}`);
+// }
+
+// saludar(); 
+
+// const obj = {
+//     lugar: "Contexto Objeto"
+// }
+
+// saludar.call(obj, "Hola", "Andrea"); 
+// saludar.apply(obj, ["Hola", "Andrea"]); 
+
+
+// const persona = {
+//     nombre: "Melissa",
+//     saludar: function(){
+//         console.log(`Hola, ${this.nombre}`);
+//     }
+// }
+
+// persona.saludar(); 
+
+// const otraPersona = {
+//     saludar: persona.saludar.bind(persona)
+// }
+
+// otraPersona.saludar(); 
+
+/*JSON*/ 
+
+// console.log(JSON.stringify("Hola mundo"));
+// console.log(JSON.parse("Hola Mundo"));
+
+// let texto = "Hola soy Andrea Alvarez y estoy tomando un curso de JAVASCRIP, saluditos, te quiero mucho"
+
+// const hablar = (texto) => speechSynthesis.speak(new SpeechSynthesisUtterance(texto)); 
+
+// hablar(texto); 
+
+    </script>
+    
+</body>
+</html>

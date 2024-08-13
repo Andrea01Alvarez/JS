@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios</title>
+</head>
+<body>
+    <h3>EJERCICIOS DE JS</h3>
+
+    <script>
+        const parImpar = (numero = undefined) => {
+        
+            par = numero % 2;
+
+            return (par === 0)?console.info(`El numero ${numero} es par`): console.info(`El numero ${numero} es impar`); 
+
+        }
+       // parImpar(17); 
+
+       const positivoNegativo = (numero = undefined) => {
+
+        verificar = Math.sign(numero)
+        return (verificar >= 0) ? console.info(`El numero ${numero} es positivo`) 
+        : (verificar < 0) ?  console.info(`El numero ${numero} es negativo`) :
+        console.info(`Ingrese el numero`); 
+
+       }
+
+//positivoNegativo()
+
+const division = (numero1 = undefined, numero2 = undefined) => {
+    if (numero1 === undefined || numero1 === null) return console.warn("Ingrese el primer número");
+    if (numero2 === undefined || numero2 === null) return console.warn("Ingrese el segundo número");
+
+
+  if (numero1 === 0)return console.warn ("El numero ingresado no puede ser cero"); 
+  if (numero2 === 0)return console.warn ("El numero ingresado no puede ser cero"); 
+  result = numero1 / numero2; 
+
+ return console.info(`El resultado de la division  de los numeros ${numero1} y ${numero2} es: ${result}`); 
+ }
+
+//division(8,2); 
+
+ const acertar = (letra = "") => {
+
+    return (letra === "a" || letra === "A") ? console.info(`Ha acerctado con la letra ${letra} `) 
+    : console.error(`No ha acerctado con la letra ${letra} `); 
+ }
+
+ //acertar("C")
+
+const diferencia = (numero1 = undefined, numero2 = undefined) => {
+
+    if (numero1 === undefined || numero1 === null) return console.warn("Ingrese el primer número");
+    if (numero2 === undefined || numero2 === null) return console.warn("Ingrese el segundo número");
+
+    diferencia_numero = Math.abs(numero1 - numero2); 
+
+    return console.info(`la diferencia de ${numero1} y ${numero2} es de ${diferencia_numero}`); 
+}
+
+//diferencia(20, -10)
+
+const bebidas = ( tipo = " ") => {
+    tipo = tipo.toLowerCase(); 
+    return (tipo === "vino" || tipo === "cerveza") ? console.info("Vaya a la barra")
+           : console.info("Vaya a la tienda"); 
+}
+
+//bebidas("REFTREsco"); 
+
+const transporte = (tipo = " ") => {
+    tipo = tipo.toLowerCase(); 
+    return (tipo === "tren" || tipo === "autobus") ? console.info("Recurde llevar dinero para el ticket")
+           : console.info("¡FELIZ VIAJE!"); 
+}
+//    transporte("carro"); 
+
+const recorrer = (kilometros = undefined, horas = undefined) => {
+    recorrido = kilometros / horas; 
+
+    return (recorrido >= 40 && recorrido <=60) 
+    ? console.info(`Ud ha recorrido ${kilometros} km en ${horas} horas, que son ${recorrido} km/h, por lo tanto paso la prueba`)
+    : console.info(`Ud ha recorrido ${kilometros} km en ${horas} horas, que son ${recorrido} km/h, por lo tanto esta descalificado`); 
+}
+
+//recorrer(150, 2)
+
+const total = (articulo = undefined, precio = undefined) => {
+
+    subtotal = articulo * precio; 
+    if (articulo >= 10){
+      totalPagar = subtotal - (subtotal*0.15); 
+      console.info(`El total a pagar es de  ${totalPagar}`)
+    }else {
+        console.info(`El total a pagar es de  ${subtotal}`); 
+    }
+
+}
+
+//total(15,50); 
+
+const nota = (nota1 = undefined, nota2 = undefined, nota3 = undefined) => {
+
+    media = Math.round((nota1 + nota2 + nota3) / 3) ; 
+
+    if(media < 5){
+        return console.info(`Su media es de: ${media} por lo tanto esta suspendido`)
+    } else if (media >= 5 && media <= 6){
+        return console.info(`Su media es de: ${media} por lo tanto esta aprobado`)
+    }else {
+        return console.info(`Su media es de: ${media} excelente`)
+    }
+  
+
+}
+
+nota(1,2,10)
+    </script>
+    
+</body>
+</html>
