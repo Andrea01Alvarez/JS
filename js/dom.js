@@ -104,16 +104,58 @@
 
 
 const $figure = document.createElement("figure"),
+      $figure2 = document.createElement("figure"),
       $img = document.createElement("img"),
-      $figcaption = document.createElement("figcaption"),
+      $figcaption = document.createElement("figcaption"), 
       $figcaptionText = document.createTextNode("Animals"),
       $cards = document.querySelector(".cards"); 
 
       $img.setAttribute("src", "https://i0.wp.com/senprende.hn/wp-content/uploads/2023/07/Logo-Honduras.png?fit=571%2C212&ssl=1")
-      $img.setAttribute("alt", "Animals"); 
+      $img.setAttribute("alt", "Senprende"); 
       $figure.classList.add("card");
 
       $figcaption.appendChild($figcaptionText); 
       $figure.appendChild($img); 
       $figure.appendChild($figcaption); 
       $cards.appendChild($figure); 
+
+      $figure2.innerHTML = `<img src="https://i0.wp.com/senprende.hn/wp-content/uploads/2023/07/Logo-Honduras.png?fit=571%2C212&ssl=1" alt = "People">
+        <figcaption>People</figcaption>`;
+
+     $figure2.classList.add("card");
+     $cards.appendChild($figure2); 
+
+     const estaciones = ["Primavera", "Verano", "Otoño", "Invierno"],
+       $ul = document.createElement("ul"); 
+
+    document.write("<h3>Estaciones del Año</h3>"); 
+    document.body.appendChild($ul); 
+
+    estaciones.forEach( el => {
+        const $li = document.createElement("li");
+        $li.textContent = el; 
+        $ul.appendChild($li); 
+    })
+
+
+    const continentes = ["Africa", "America", "Asia", "Europa", "Oceania"],
+    $ul2 = document.createElement("ul"); 
+
+ document.write("<h3>Continentes del mundo</h3>"); 
+ document.body.appendChild($ul2); 
+
+ continentes.forEach((el) => ($ul2.innerHTML += `<li>${el}</li>`)); 
+
+ const meses = ["Enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "obtubre", "noviembre", "diciembre"],
+       $ul3 = document.createElement("ul"), 
+       $fragment = document.createDocumentFragment(); 
+
+meses.forEach((el) => {
+    const $li = document.createElement("li");
+    $li.textContent = el;
+    $fragment.appendChild($li); 
+});
+
+document.write("<h3>Meses del año</h3>");
+$ul3.appendChild($fragment);
+document.body.appendChild($ul3); 
